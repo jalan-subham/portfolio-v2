@@ -5,7 +5,7 @@ import Footer from './components/Footer.astro';
 import { loadEnv } from 'vite';
 
 const { GTAG_MEASUREMENT_ID } = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
-const { title, description, image } = Astro.props;
+const { title, description, image, center=false } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,7 +17,7 @@ const { title, description, image } = Astro.props;
 		class="bg-white dark:bg-zinc-900 dark:text-zinc-100 pt-16 sm:pt-0"
 	>
 		<Header/>
-		<div class='py-8 min-h-[calc(100vh-160px)]'>
+		<div class={center? 'py-8 min-h-[calc(100vh-160px)] flex items-center justify-center' : 'py-8 min-h-[calc(100vh-160px)]'}>
 			<slot />
 		</div>
 		<Footer />

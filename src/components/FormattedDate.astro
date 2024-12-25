@@ -5,7 +5,7 @@ interface Props {
 
 const { date } = Astro.props;
 ---
-
+{date.getFullYear() == 9999 ? 'Present': 
 <time datetime={date.toISOString()}>
 	{
 		date.toLocaleDateString('en-us', {
@@ -16,3 +16,4 @@ const { date } = Astro.props;
 		})
 	}
 </time>
+}

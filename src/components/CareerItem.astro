@@ -1,0 +1,88 @@
+---
+import FormattedDate from './FormattedDate.astro';
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+
+// Define the props interface
+type Career = CollectionEntry<'careers'>;
+
+interface Props {
+  career: Career;
+}
+
+// Destructure the necessary data from the career prop
+const { company, startDate, endDate, title } = Astro.props.career.data;
+const { body } = Astro.props.career;
+const accordionId = `career-content-${company.replace(/\s+/g, '-')}-${startDate}`;
+const { Content, headings } = await render(Astro.props.career);
+---
+<!-- Accordion Container -->
+<div class="border-b py-4 mb-4 capitalize dark:border-b-zinc-700">
+  <!-- Accordion Header -->
+  <button 
+    class="w-full flex flex-col sm:flex-row justify-between sm:items-center gap-2 sm:gap-0"
+    type="button"
+    aria-expanded="false"
+    aria-controls={accordionId}
+    onclick={`toggleAccordion('${accordionId}')`}
+  >
+    <!-- Left Section: Company and Title -->
+    <div class="flex flex-col sm:flex-row sm:items-begin gap-2">
+      <h3 class="font-medium text-md text-zinc-900 dark:text-zinc-100">
+        {company}
+      </h3>
+      <h4 class="text-md text-zinc-700 dark:text-zinc-300">
+        {title}
+      </h4>
+    </div>
+
+    <!-- Right Section: Dates and Icon -->
+    <div class="flex items-center gap-2">
+      <!-- Duration Section -->
+      <div class="text-zinc-700 text-sm dark:text-zinc-300">
+        <FormattedDate date={startDate} /> - <FormattedDate date={endDate} />
+      </div>
+
+      <!-- Accordion Icon -->
+      <svg 
+        class="w-6 h-6 text-zinc-700 dark:text-zinc-300 transform transition-transform duration-300"
+        xmlns="http://www.w3.org/2000/svg" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </button>
+  
+  <!-- Accordion Content -->
+  <div 
+    id={accordionId} 
+    class="mt-2 hidden"
+  >
+    <ul class="list-disc list-inside text-sm text-zinc-600 dark:text-zinc-400 space-y-2 pl-6">
+      <Content/>
+    </ul>
+  </div>
+</div>
+
+<!-- Inline Script for Accordion Functionality -->
+<script type="text/javascript">
+  function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const button = event.currentTarget;
+    const svg = button.querySelector('svg');
+    const isHidden = content.classList.toggle('hidden');
+
+    // Update aria-expanded attribute
+    button.setAttribute('aria-expanded', !isHidden);
+
+    // Rotate the SVG icon based on the state
+    if (!isHidden) {
+      svg.classList.add('rotate-180');
+    } else {
+      svg.classList.remove('rotate-180');
+    }
+  }
+</script>

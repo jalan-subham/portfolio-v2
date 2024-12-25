@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CareerByStartDate from '../../components/CareerByStartDate.astro';
+
+type Career = CollectionEntry<'careers'>;
+const title = 'career'
+const description = "i'm grateful for the people who helped me get these opportunities"
+
+const careers = (await getCollection('careers')).sort((a: Career, b: Career) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
+
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+>
+  <div class='container'>
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-2">{title}</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg">{description}</p>
+    </div>
+    <CareerByStartDate careers={careers}/>
+  </div>
+</BaseLayout>

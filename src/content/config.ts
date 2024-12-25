@@ -18,5 +18,15 @@ const blog = defineCollection({
       .optional()
 	}),
 });
+const careers = defineCollection({
+	type: 'content',
+	schema: () => z.object({
+		company: z.string(),
+		title: z.string(),
+		startDate: z.coerce.date(),
+		endDate: z.coerce.date(),
+		summary: z.string().optional(),
+	}),
+});
 
-export const collections = { blog };
+export const collections = { blog, careers };

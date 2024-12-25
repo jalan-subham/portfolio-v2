@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CareerItem from './CareerItem.astro';
+type Career = CollectionEntry<'careers'>;
+const { careers } = Astro.props;
+console.log(careers);
+---
+
+{careers.map(( career: Career ) => (
+  <CareerItem career={career} />
+))}
