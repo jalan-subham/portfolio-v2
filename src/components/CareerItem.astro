@@ -14,10 +14,10 @@ interface Props {
 const { company, startDate, endDate, title } = Astro.props.career.data;
 const { body } = Astro.props.career;
 const accordionId = `career-content-${company.replace(/\s+/g, '-')}-${startDate}`;
-const { Content, headings } = await render(Astro.props.career);
+const { Content } = await render(Astro.props.career);
 ---
 <!-- Accordion Container -->
-<div class="border-b py-4 mb-4 capitalize dark:border-b-zinc-700">
+<div class="border-b py-4 mb-4 capitalize dark:border-b-zinc-700 text-pretty">
   <!-- Accordion Header -->
   <button 
     class="w-full flex flex-col sm:flex-row justify-between sm:items-center gap-2 sm:gap-0"
@@ -61,9 +61,10 @@ const { Content, headings } = await render(Astro.props.career);
     id={accordionId} 
     class="mt-2 hidden"
   >
-    <ul class="list-disc list-inside text-sm text-zinc-600 dark:text-zinc-400 space-y-2 pl-6">
+    <div class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2 pl-6 lowercase">
       <Content/>
-    </ul>
+    </div>
+
   </div>
 </div>
 
@@ -86,3 +87,9 @@ const { Content, headings } = await render(Astro.props.career);
     }
   }
 </script>
+<style is:global>
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+</style>
