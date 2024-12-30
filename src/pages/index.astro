@@ -6,12 +6,12 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import SJ from '@src/assets/img/SJ.jpg';
 import Prose from '../components/Prose.astro';
-import { projects } from './projects/projects';
+
 import ProjectList from '../components/ProjectList.astro'
 import PostItem from '../components/PostItem.astro';
 
 type BlogPost = CollectionEntry<'blog'>;
-
+const projects = (await getCollection('projects')).sort((a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) => b.data.date.valueOf() - a.data.date.valueOf());
 const top6Projects = projects.slice(0, 6);
 const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
 ---

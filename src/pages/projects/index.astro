@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectList from '../../components/ProjectList.astro';
-import { projects } from './projects';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
+type Project = CollectionEntry<'projects'>;
+export const projects = (await getCollection('projects')).sort((a: Project, b: Project) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout
@@ -12,7 +15,7 @@ import { projects } from './projects';
   <div class='container'>
     <div class="mb-10">
       <h1 class="text-3xl font-bold mb-2">All My Projects</h1>
-      <p class="text-zinc-700 dark:text-zinc-300 text-lg">All my project portfolio from real projects to open source projects.</p>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg">here's the stuff i've been working on xoxo</p>
     </div>
     <ProjectList projects={projects}/>
   </div>
