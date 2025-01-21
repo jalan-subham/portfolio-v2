@@ -27,6 +27,15 @@ const careers = defineCollection({
 		endDate: z.coerce.date(),
 		summary: z.string().optional()	}),
 });
+const pors = defineCollection({
+	type: 'content',
+	schema: () => z.object({
+		company: z.string(),
+		title: z.string(),
+		startDate: z.coerce.date(),
+		endDate: z.coerce.date(),
+		summary: z.string().optional()	}),
+});
 
 const projects = defineCollection({
 	type: 'content',
@@ -41,4 +50,4 @@ const projects = defineCollection({
 		desc: z.string(),
 	}),
 })
-export const collections = { blog, careers, projects };
+export const collections = { blog, careers, projects, pors };

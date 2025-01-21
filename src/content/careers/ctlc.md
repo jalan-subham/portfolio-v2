@@ -1,10 +1,10 @@
 ---
 company: CTLC, Plaksha
 startDate: 2024-08-30
-endDate: 9999-01-01
+endDate: 2025-01-15
 title: Machine Learning Intern
 ---
-- Creating an application for non-verbal communication evaluation.
-- Working in a team of 3 to ideate the model architecture. 
+- Created an application for non-verbal communication evaluation.
+- Worked in a team of 3 to ideate the model architecture. 
 - Developed a React Native application for demonstration.
-- Using frameworks like Groq, OpenCV, PyTorch for inference.
+- Used frameworks like Groq, OpenCV, PyTorch for inference.

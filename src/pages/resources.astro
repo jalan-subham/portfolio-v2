@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SJ from '@src/assets/img/SJ.jpg';
+import Prose from '../components/Prose.astro';
+const title = "resources";
+const description = "some links idk i'm still thinking";
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+>
+  <div class='container'>
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-2 lowercase">{title}</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg lowercase">{description}</p>
+    </div>
+    <ul>
+      <li>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="underline">youtube</a>
+      </li>
+      <li>
+    </ul>
+  </div>
+</BaseLayout>

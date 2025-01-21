@@ -6,7 +6,7 @@ import CareerByStartDate from '../../components/CareerByStartDate.astro';
 
 type Career = CollectionEntry<'careers'>;
 const title = 'career'
-const description = "i'm grateful for the people who helped me get these opportunities"
+const description = "i'm grateful for these opportunities :))"
 
 const careers = (await getCollection('careers')).sort((a: Career, b: Career) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
 

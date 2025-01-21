@@ -9,13 +9,13 @@ export const projects = (await getCollection('projects')).sort((a: Project, b: P
 ---
 
 <BaseLayout
-	title="All My Projects"
+	title="projects"
 	description="All my project portfolio from real projects to open source projects."
 >
   <div class='container'>
     <div class="mb-10">
-      <h1 class="text-3xl font-bold mb-2">All My Projects</h1>
-      <p class="text-zinc-700 dark:text-zinc-300 text-lg">here's the stuff i've been working on xoxo</p>
+      <h1 class="text-3xl font-bold mb-2">projects</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg">this is why I'm not regular to the gym</p>
     </div>
     <ProjectList projects={projects}/>
   </div>
