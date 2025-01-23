@@ -1,6 +1,6 @@
 ---
 company: Founding Core
-startDate: 2022-10-15
+startDate: 2023-10-15
 endDate: 2024-11-06
 title: LEAP (AI) Club
 ---

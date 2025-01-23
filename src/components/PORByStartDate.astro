@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from 'astro:content';
+type POR = CollectionEntry<'pors'>;
+import PORItem from './PORItem.astro';
+const { pors } = Astro.props;
+console.log(pors);
+---
+
+{pors.map(( por: POR ) => (
+  <PORItem por={por} />
+))}

@@ -2,13 +2,13 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CareerByStartDate from '../../components/CareerByStartDate.astro';
+import PORByStartDate from '@src/components/PORByStartDate.astro';
 
-type Career = CollectionEntry<'careers'>;
+type POR = CollectionEntry<'pors'>;
 const title = 'pors'
 const description = "= position(s) of responsibility"
 
-const pors = (await getCollection('pors')).sort((a: Career, b: Career) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
+const pors = (await getCollection('pors')).sort((a: POR, b: POR) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
 
 ---
 
@@ -21,6 +21,6 @@ const pors = (await getCollection('pors')).sort((a: Career, b: Career) => b.data
       <h1 class="text-3xl font-bold mb-2">{title}</h1>
       <p class="text-zinc-700 dark:text-zinc-300 text-lg">{description}</p>
     </div>
-    <CareerByStartDate careers={pors}/>
+    <PORByStartDate pors={pors}/>
   </div>
 </BaseLayout>
