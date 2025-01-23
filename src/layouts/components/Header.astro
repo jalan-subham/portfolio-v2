@@ -128,7 +128,7 @@ const menu = [
       if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
         return localStorage.getItem('theme');
       }
-      return 'light';
+      return 'dark';
     })();
     document.documentElement.classList.toggle('dark', theme === 'dark');
     window.localStorage.setItem('theme', theme || '');
@@ -143,8 +143,10 @@ const menu = [
       const html = document.documentElement;
       html.classList.toggle('dark');
       const isDark = html.classList.contains('dark');
-      sendMessage({ setConfig: { theme: isDark ? 'dark_dimmed' : 'light' } });
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    //   sendMessage({ setConfig: { theme: isDark ? 'dark_dimmed' : 'light' } });
+	sendMessage({ setConfig: { theme: 'dark_dimmed' } });
+    //   localStorage.setItem('theme', isDark ? 'dark' : 'light');
+	localStorage.setItem('theme', 'dark');
     };
     document.getElementById('themeToggle')?.addEventListener('click', handleToggleClick);
   </script>
