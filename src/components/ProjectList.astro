@@ -31,7 +31,9 @@ type Project = CollectionEntry<'projects'>;
 
         </div>
         <h3 class="font-semibold my-2">
-          <a class="underline" href={project.data.github} target="_blank" rel={project.data.github}>{project.data.name}</a>
+          {project.data.github ?
+          <a class="underline" href={project.data.github} target="_blank" rel={project.data.github}>{project.data.name}</a> : 
+          <a target="_blank" rel={project.data.github}>{project.data.name}</a> }
         </h3>
         <div class="line-clamp-3 text-zinc-600 dark:text-zinc-300 mb-4 min-h-[50px]">
           <p>{project.data.desc}</p>
