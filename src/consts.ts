@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'subham jalan';
 export const SITE_TAGLINE = 'portfolio of subham jalan'; // site tagline
-export const SITE_DESCRIPTION = 'yeah, portfolio of subham jalan'; // site meta description for SEO
+export const SITE_DESCRIPTION = "rollin'"; // site meta description for SEO
