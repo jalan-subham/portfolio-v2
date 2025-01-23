@@ -27,11 +27,11 @@ const { Content } = await render(Astro.props.por);
     onclick={`toggleAccordion('${accordionId}')`}
   >
     <!-- Left Section: Company and Title -->
-    <div class="flex flex-col sm:flex-row sm:items-begin gap-2">
-      <h3 class="font-medium text-md text-zinc-900 dark:text-zinc-100">
+    <div class="flex flex-col sm:flex-row gap-2 items-begin justify-start ">
+      <h3 class="font-medium text-md text-zinc-900 dark:text-zinc-100 text-left">
         {company}
       </h3>
-      <h4 class="text-md text-zinc-700 dark:text-zinc-300">
+      <h4 class="text-md text-zinc-700 dark:text-zinc-300 text-left">
         {title}
       </h4>
     </div>
