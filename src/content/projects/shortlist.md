@@ -5,5 +5,5 @@ org : "Offset"
 tags: ["Next.js", "Mediapipe"]
 date: "April 30 2025"
 desc: "An AI enabled interview coach for DSA and HR interviews."
-url: 
+github: "https://github.com/Offset-official/shortlist"
 ---
